@@ -50,6 +50,7 @@ var saveTasks = function() {
 };
 
 var auditTask = function(taskEl) {
+  console.log(taskEl);
   // get date from task element
   var date = $(taskEl)
   .find("span")
@@ -275,4 +276,9 @@ $("#remove-tasks").on("click", function() {
 // load tasks for the first time
 loadTasks();
 
+setInterval(function () {
+  $(".card .list-group-item").each(function(index, el) {
+    auditTask(el);
+  });
+}, 1800000);  // check every 30 minutes
 
