@@ -79,15 +79,24 @@ $(".card .list-group").sortable({
   helper: "clone",
   activate: function(event, ui) {
     console.log(ui);
+    // my code added for adding dropover class
+    $(this).addClass("dropover");
+    $(".bottom-trash").addClass("bottom-trash-drag");
   },
   deactivate: function(event, ui) {
     console.log(ui);
+    $(this).removeClass("dropover");
+    $(".bottom-trash").removeClass("bottom-trash-drag");
   },
   over: function(event) {
     console.log(event);
+    $(this).addClass("dropover-active");
+    $(".bottom-trash").addClass("bottom-trash-active");
   },
   out: function(event) {
     console.log(event);
+    $(this).removeClass("dropover-active");
+    $(".bottom-trash").removeClass("bottom-trash-active");
   },
   update: function() {
   // array to store the task data in
